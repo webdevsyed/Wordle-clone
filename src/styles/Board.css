@@ -1,0 +1,43 @@
+.row{
+    display: inline-grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 5px;
+    margin-bottom: 5px ;
+}
+
+.tile{
+    box-sizing: border-box;
+    height: 6.6vh;
+    width:6.6vh;
+    font-size: 3.5vh;
+    font-weight: 600;
+    color:var(--tiles-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid var(--border-tile);
+    text-transform: capitalize;
+    transition: transform 200ms;
+}
+
+.tile.bg-empty{
+    background-color:var(--bgcolor-app);
+}
+.tile.bg-justfilled{
+    border:2px solid var(--bgcolor-tile-default);
+}
+.tile.bg-correct{
+    background-color:var(--bgcolor-tile-correct);
+    border:2px solid var(--bgcolor-tile-correct);
+    color:var(--tilesfilled-font-color);
+}
+.tile.bg-present{
+    background-color:var(--bgcolor-tile-present);
+    border:2px solid var(--bgcolor-tile-present);
+    color:var(--tilesfilled-font-color);
+}
+.tile.bg-wrong{
+    background-color:var(--bgcolor-tile-wrong);
+    border:2px solid var(--bgcolor-tile-wrong);
+    color:var(--tilesfilled-font-color);
+}

@@ -1,0 +1,36 @@
+.dark-mode{
+  --primary-font-color:#ffffffde;
+  --tiles-font-color:#ffffffde;
+  --tilesfilled-font-color:#ffffffde;
+  --keysfilled-font-color:#ffffffde;
+  --bgcolor-app:#121213;
+  --bgcolor-tile-default: #d3d6da;
+  --bgcolor-tile-wrong: #3a3a3c;
+  --bgcolor-tile-present: #b59f3b ;
+  --bgcolor-tile-correct: #538d4e;
+  --border-tile: #3a3a3c;
+  --bgcolor-key:  #818384;
+  --primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+.light-mode{
+  --primary-font-color:#121213;
+  --tiles-font-color:#121213;
+  --tilesfilled-font-color:#ffffffde;
+  --keysfilled-font-color:#ffffffde;
+  --bgcolor-app:#ffffffde;
+  --bgcolor-tile-default: #d3d6da;
+  --bgcolor-tile-wrong: #787c7e;
+  --bgcolor-tile-present: #c9b458;
+  --bgcolor-tile-correct: #6aaa64;
+  --border-tile:#d3d6da;
+  --bgcolor-key:  #d3d6da;  
+  --primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#App{
+  align-items: center;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  background-color: var(--bgcolor-app);
+  color: var(--primary-font-color)
+}

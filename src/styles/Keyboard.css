@@ -1,0 +1,57 @@
+.keyboard {
+  width: 100%;
+  margin: 0 auto;
+  flex-basis: 200px;
+  flex:1.5;
+}
+  
+.line {
+  display: flex;
+  justify-content: center;
+}
+
+.key {
+  min-height: 35px;
+  height: 7vh;
+  margin: 4px 3px; 
+  border-radius: 4px;
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--bgcolor-key);
+  color:var(--primary-font-color);
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key.bg-normal{
+  background-color: var(--bgcolor-key);
+  color: white;
+}
+
+.key.bg-correct{
+    background-color:var(--bgcolor-tile-correct);
+    color: var(--keysfilled-font-color);
+}
+.key.bg-present{
+    background-color:var(--bgcolor-tile-present);
+    color: var(--keysfilled-font-color);
+}
+.key.bg-wrong{
+    background-color: var(--bgcolor-tile-wrong);
+    color: var(--keysfilled-font-color);    
+}
+
+.key.spacer{
+  flex:0.5;
+  background-color: transparent;
+}
+
+.key.big-key {
+  flex:1.5;
+  font-size: 13px;
+}
