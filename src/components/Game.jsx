@@ -105,6 +105,12 @@ function Game() {
         shakeTiles("bg-justfilled")
       }
 
+      //animation and alert for easter edd
+      if (guess[tryNum].length === 5 && guess[tryNum] === "majid") {
+        showAlert(answerWord)
+        danceTiles("bg-justfilled")
+      }
+
       //animation and alert for submitting accpetable word
       if (words.includes(guess[currentTryNum])) {
         flipTiles("bg-justfilled")
