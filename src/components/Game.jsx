@@ -110,17 +110,18 @@ function Game() {
         showAlert(answerWord)
         danceTiles("bg-justfilled")
       }
-      
-      //animation and alert for submitting answer word
-      if (guess[tryNum].length === 5 && guess[tryNum] === answerWord) {
-        danceTiles("bg-justfilled")
-      }
 
       //animation and alert for submitting accpetable word
       if (words.includes(guess[currentTryNum])) {
         flipTiles("bg-justfilled")
+        //animation and alert for submitting answer word
+        if (guess[tryNum].length === 5 && guess[tryNum] === answerWord) {
+          danceTiles("bg-justfilled")
+        }
         return currentTryNum + 1;
       }
+
+
 
       return currentTryNum
     })
