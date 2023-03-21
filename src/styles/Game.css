@@ -6,6 +6,7 @@
 	align-items: center;
 	max-width: 500px;
 	height: calc(100vh - 70px);
+	z-index: 1;
 }
 
 .alert-msg {
@@ -101,7 +102,7 @@
 	justify-content: center;
 	height: 200px;
 	border-radius: 1rem;
-	color: white;
+	color: var(--primary-font-color);
 }
 
 .result > h1 {

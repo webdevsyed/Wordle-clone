@@ -16,7 +16,7 @@ function Game() {
     return () => {
       window.removeEventListener('keyup', handleKeyUp)
     }
-  }, [tryNum])
+  })
 
   const startGame = () => {
     setAnswerWord(words[Math.round(Math.random() * words.length)]);
@@ -31,13 +31,14 @@ function Game() {
   }
 
   const checkWin = () => {
-    return guessWords[tryNum - 1] === answerWord;
+    return guessWords[tryNum - 2] === answerWord;
   }
   const checkLose = () => {
     return tryNum === 6 && guessWords[tryNum - 1] != answerWord;
   }
 
   const handleKeyUp = (e) => {
+    //if game has ended and player has won/lost, early return and does not let you continue entering
     if (checkWin() || checkLose()) {
       return
     }
@@ -72,16 +73,21 @@ function Game() {
     return;
   }
   const handleLetterKey = (char) => {
+    //Modify the array of guesses by updating each word using map
     setGuessWords(currentGuessWords => currentGuessWords.map((word, index) => {
+      //Ensure all five letters of the word have not been entered
       if (currentGuessWords[tryNum].length < 5) {
+        //Ensure that we are adding to the currect row
         if (index === tryNum) {
           let newWord = word + char;
           return newWord;
         }
+        //If it is not current row, then word is returned unaltered
         else {
           return word;
         }
       }
+      //If all 5 letters have been entered, then word is returned unaltered
       else {
         return word
       }
@@ -91,7 +97,6 @@ function Game() {
 
   const submitGuess = (guess) => {
     setTryNum(currentTryNum => {
-      console.log(guess[tryNum])
 
       //animation and alert for incomplete words
       if (guess[tryNum].length < 5) {
@@ -105,25 +110,27 @@ function Game() {
         shakeTiles("bg-justfilled")
       }
 
-      //animation and alert for easter edd
+      //animation and alert for easter egg
       if (guess[tryNum].length === 5 && guess[tryNum] === "majid") {
         showAlert(answerWord)
         danceTiles("bg-justfilled")
       }
 
+       //animation and alert for submitting answer word
+      if (guess[tryNum].length === 5 && guess[tryNum] === answerWord) {
+        showAlert("You Win!")
+        danceTiles("bg-justfilled")
+        console.log("entered answer word")
+        return currentTryNum +1;
+      }
       //animation and alert for submitting accpetable word
       if (words.includes(guess[currentTryNum])) {
         flipTiles("bg-justfilled")
-        //animation and alert for submitting answer word
-        if (guess[tryNum].length === 5 && guess[tryNum] === answerWord) {
-          danceTiles("bg-justfilled")
-        }
+        console.log("entered accpetable word")
         return currentTryNum + 1;
       }
 
-
-
-      return currentTryNum
+   return currentTryNum
     })
   }
 
@@ -198,7 +205,7 @@ function Game() {
           (<div className="result">
             <h1>🎉🥳</h1>
             <h1>YOU WON!</h1>
-            {{ tryNum } > 1 ? (<h2>You guessed in {tryNum} attempts.</h2>) : (<h2>You guessed in {tryNum} attempt.</h2>)}
+            {{ tryNum } > 1 ? (<h2>You guessed in {tryNum} attempts.</h2>) : (<h2>You guessed in {tryNum-1} attempt.</h2>)}
           </div>) :
 
           checkLose() ?
@@ -212,8 +219,8 @@ function Game() {
       }
 
       <div className="buttons">
-        <button type="button" id="start-btn" onClick={startGame}>start again</button>
-        <button type="button" id="retry-btn" onClick={retryGame}>Retry</button>
+        <button type="button" id="start-btn" onClick={startGame}>New Game</button>
+        <button type="button" id="retry-btn" onClick={retryGame}>Try Again</button>
       </div>
 
     </div>
