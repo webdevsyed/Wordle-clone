@@ -205,7 +205,9 @@ function Game() {
           (<div className="result">
             <h1>🎉🥳</h1>
             <h1>YOU WON!</h1>
-            {{ tryNum } > 1 ? (<h2>You guessed in {tryNum+1} attempts.</h2>) : (<h2>You guessed in {tryNum-1} attempt.</h2>)}
+            {/* {{ tryNum } > 0 ? (<h2>You guessed in {tryNum+1} attempts.</h2>) : (<h2>You guessed in {tryNum} attempt.</h2>)} */}
+           
+             {tryNum>1? (<h2>You guessed in {tryNum} attempts.</h2>) : (<h2>You guessed in {tryNum} attempt.</h2>)}
           </div>) :
 
           checkLose() ?
