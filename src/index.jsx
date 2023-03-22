@@ -13,7 +13,7 @@ resizeOps();
 window.addEventListener("resize", resizeOps);
 
 ReactDOM.createRoot(root).render(
-  <React.StrictMode>
+  
     <App />
-  </React.StrictMode>,
+  
 )

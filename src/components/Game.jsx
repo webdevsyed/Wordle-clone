@@ -31,10 +31,10 @@ function Game() {
   }
 
   const checkWin = () => {
-    return guessWords[tryNum - 2] === answerWord;
+    return guessWords[tryNum-1] === answerWord;
   }
   const checkLose = () => {
-    return tryNum === 6 && guessWords[tryNum - 1] != answerWord;
+    return tryNum === 6 && guessWords[tryNum-1] != answerWord;
   }
 
   const handleKeyUp = (e) => {
@@ -121,13 +121,13 @@ function Game() {
         showAlert("You Win!")
         danceTiles("bg-justfilled")
         console.log("entered answer word")
-        return currentTryNum +1;
+        return currentTryNum+1;
       }
       //animation and alert for submitting accpetable word
       if (words.includes(guess[currentTryNum])) {
         flipTiles("bg-justfilled")
         console.log("entered accpetable word")
-        return currentTryNum + 1;
+        return currentTryNum+1;
       }
 
    return currentTryNum
